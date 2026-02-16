@@ -2,6 +2,8 @@
 
 A personal website that looks and behaves like a retro CRT terminal. Black screen, phosphor-green text, blinking cursor, typewriter output, and keyboard-driven navigation.
 
+**Live site:** https://jaimeam.github.io/ancient_blog/
+
 Built with vanilla TypeScript and CSS. No frameworks, no runtime dependencies.
 
 ## Getting Started
