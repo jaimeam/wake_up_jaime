@@ -1,0 +1,220 @@
+/* ── Color Tokens ────────────────────────────────────── */
+:root {
+  --bg: #0a0a0a;
+  --fg: #00ff41;
+  --fg-dim: #00aa2a;
+  --fg-error: #ff0040;
+  --fg-accent: #00d4ff;
+  --fg-bright: #33ff66;
+  --cursor-blink: 530ms;
+  --font-mono: 'VT323', 'Courier New', monospace;
+}
+
+/* ── Base ────────────────────────────────────────────── */
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-mono);
+  font-size: 18px;
+  overflow-x: hidden;
+}
+
+/* ── CRT Monitor Shell ──────────────────────────────── */
+.crt-bezel {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 1.5rem;
+}
+
+.crt-screen {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  min-height: calc(100vh - 3rem);
+  padding: 2rem 2.5rem;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+/* ── Terminal Output ─────────────────────────────────── */
+#terminal-output {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  line-height: 1.5;
+}
+
+#terminal-output .line {
+  display: block;
+  min-height: 1.5em;
+}
+
+/* ── Text Styles ─────────────────────────────────────── */
+.text-dim {
+  color: var(--fg-dim);
+}
+
+.text-bright {
+  color: var(--fg-bright);
+}
+
+.text-error {
+  color: var(--fg-error);
+}
+
+.text-accent {
+  color: var(--fg-accent);
+}
+
+/* ── Cursor ──────────────────────────────────────────── */
+.cursor {
+  display: inline;
+  animation: blink var(--cursor-blink) step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ── Input Area ──────────────────────────────────────── */
+.input-line {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5em;
+}
+
+.input-line .prompt-char {
+  color: var(--fg);
+  margin-right: 0.5em;
+  flex-shrink: 0;
+}
+
+.input-mirror {
+  color: var(--fg);
+  white-space: pre;
+}
+
+#hidden-input {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+/* ── Menu Buttons (mobile fallback & accessibility) ─── */
+.menu-options {
+  margin: 0.5em 0;
+}
+
+.menu-btn {
+  display: block;
+  width: 100%;
+  padding: 0.3em 0;
+  color: var(--fg);
+  font-family: var(--font-mono);
+  font-size: inherit;
+  line-height: 1.5;
+  text-shadow: 0 0 5px var(--fg);
+}
+
+.menu-btn:hover,
+.menu-btn:focus-visible {
+  color: var(--fg-bright);
+  text-shadow: 0 0 10px var(--fg);
+  outline: none;
+}
+
+.menu-btn:focus-visible {
+  text-decoration: underline;
+}
+
+/* ── Links ───────────────────────────────────────────── */
+.terminal-link {
+  color: var(--fg-accent);
+  text-decoration: none;
+  text-shadow: 0 0 5px var(--fg-accent);
+}
+
+.terminal-link:hover,
+.terminal-link:focus-visible {
+  text-decoration: underline;
+  color: #66e0ff;
+}
+
+/* ── Divider ─────────────────────────────────────────── */
+.divider {
+  color: var(--fg-dim);
+}
+
+/* ── Accessibility: screen-reader-only ───────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ── Skip Link ───────────────────────────────────────── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  background: var(--bg);
+  color: var(--fg);
+  padding: 0.5em 1em;
+  z-index: 1000;
+  font-family: var(--font-mono);
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* ── Responsive ──────────────────────────────────────── */
+@media (max-width: 768px) {
+  body {
+    font-size: 15px;
+  }
+
+  .crt-bezel {
+    padding: 0.5rem;
+  }
+
+  .crt-screen {
+    padding: 1rem 1.2rem;
+    min-height: calc(100vh - 1rem);
+    border-radius: 0;
+  }
+
+  /* Show tappable buttons more prominently on mobile */
+  .menu-btn {
+    padding: 0.6em 0;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+
+  .crt-screen {
+    padding: 0.8rem 1rem;
+  }
+}
+
+/* ── Reduced Motion ──────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .cursor {
+    animation: none;
+    opacity: 1;
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "ancient_blog",
+  "version": "1.0.0",
+  "description": "A CRT-style personal terminal website",
+  "main": "dist/bundle.js",
+  "scripts": {
+    "build": "esbuild scripts/main.ts --bundle --outfile=dist/bundle.js --minify --target=es2020",
+    "dev": "esbuild scripts/main.ts --bundle --outfile=dist/bundle.js --watch --sourcemap",
+    "typecheck": "tsc --noEmit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://local_proxy@127.0.0.1:42123/git/jaimeam/ancient_blog"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "esbuild": "^0.27.3",
+    "typescript": "^5.9.3"
+  }
+}
