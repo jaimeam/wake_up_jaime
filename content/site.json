@@ -15,18 +15,18 @@
       "LOADING PERSONALITY MATRIX .... OK",
       "",
       "ALL SYSTEMS NOMINAL.",
-      "WAKE UP, JAIME.",
+      "SYSTEM READY.",
       ""
     ]
   },
   "welcome": {
     "content": [
       { "type": "text", "value": "" },
-      { "type": "text", "value": "  W A K E   U P ,   J A I M E", "style": "bright" },
+      { "type": "text", "value": "  J A I M E ' S   T E R M I N A L", "style": "bright" },
       { "type": "text", "value": "" },
       { "type": "text", "value": "  SYSTEM ONLINE // SECURE CONNECTION ESTABLISHED", "style": "dim" },
-      { "type": "text", "value": "  Welcome, operator. Personal terminal loaded." },
-      { "type": "text", "value": "  Thoughts, projects, and experiments inside." },
+      { "type": "text", "value": "  Data scientist and AI lead." },
+      { "type": "text", "value": "  Experience, projects, and experiments inside." },
       { "type": "text", "value": "" }
     ]
   },
@@ -45,22 +45,21 @@
         { "type": "text", "value": "" },
         { "type": "text", "value": "  Handle:    JAIME" },
         { "type": "text", "value": "  Status:    ACTIVE", "style": "bright" },
-        { "type": "text", "value": "  Location:  Somewhere on the grid", "style": "dim" },
+        { "type": "text", "value": "  Location:  Madrid, on the grid", "style": "dim" },
         { "type": "text", "value": "" },
         { "type": "text", "value": "" },
-        { "type": "text", "value": "  I build things for the web and occasionally write about it." },
-        { "type": "text", "value": "  Software engineer by trade. I like digging into systems," },
-        { "type": "text", "value": "  understanding how things work beneath the surface, and" },
-        { "type": "text", "value": "  building new things that feel like they've been around" },
-        { "type": "text", "value": "  forever." },
+        { "type": "text", "value": "  Data scientist and AI lead with experience across" },
+        { "type": "text", "value": "  consulting, automotive, and tech. Focused on" },
+        { "type": "text", "value": "  optimization, machine learning, and deploying" },
+        { "type": "text", "value": "  AI solutions at scale." },
         { "type": "text", "value": "" },
-        { "type": "text", "value": "  When I'm not writing code, I'm probably reading about" },
-        { "type": "text", "value": "  computing history, tinkering with side projects, or" },
-        { "type": "text", "value": "  staring into a terminal very much like this one." },
+        { "type": "text", "value": "  When I'm not training models, I'm probably hacking" },
+        { "type": "text", "value": "  on side projects, tinkering with Rust, or staring" },
+        { "type": "text", "value": "  into a terminal very much like this one." },
         { "type": "text", "value": "" },
         { "type": "text", "value": "" },
-        { "type": "text", "value": "  SKILLS: TypeScript, Rust, Python, Systems Design", "style": "dim" },
-        { "type": "text", "value": "  INTERESTS: Open source, Optimization, Cybersecurity", "style": "dim" },
+        { "type": "text", "value": "  SKILLS: Python, ML/AI, Optimization, Cloud, K8s", "style": "dim" },
+        { "type": "text", "value": "  INTERESTS: Open source, Data engineering, Rust", "style": "dim" },
         { "type": "text", "value": "" }
       ]
     },
@@ -149,89 +148,213 @@
       ]
     },
     {
-      "id": "writing",
-      "commands": ["3", "writing"],
-      "title": "WRITING",
+      "id": "experience",
+      "commands": ["3", "experience"],
+      "title": "EXPERIENCE",
       "content": [
-        { "type": "text", "value": "  WRITING // TRANSMISSION LOG", "style": "bright" },
+        { "type": "text", "value": "  EXPERIENCE // SERVICE RECORD", "style": "bright" },
         { "type": "text", "value": "" },
-        { "type": "text", "value": "  Recent transmissions:", "style": "dim" },
+        { "type": "text", "value": "  Select a role for details.", "style": "dim" },
         { "type": "text", "value": "" }
       ],
       "children": [
         {
-          "id": "post-1",
-          "commands": ["1"],
-          "title": "WHY I STILL USE A TERMINAL",
+          "id": "exp-bcg",
+          "commands": ["1", "bcg"],
+          "title": "BCG — SENIOR DATA SCIENTIST",
           "content": [
-            { "type": "text", "value": "  WHY I STILL USE A TERMINAL", "style": "bright" },
+            { "type": "text", "value": "  BCG // SENIOR DATA SCIENTIST", "style": "bright" },
             { "type": "text", "value": "" },
-            { "type": "text", "value": "  DATE: 2026.01.15  //  READ TIME: 5 MIN", "style": "dim" },
+            { "type": "text", "value": "  LOCATION: Madrid", "style": "dim" },
+            { "type": "text", "value": "  PERIOD:   Jan 2022 - Present", "style": "dim" },
             { "type": "text", "value": "" },
-            { "type": "text", "value": "  There's something deeply satisfying about a blinking" },
-            { "type": "text", "value": "  cursor on a dark screen. No distractions. No pop-ups." },
-            { "type": "text", "value": "  No notifications. Just you and the machine, talking in" },
-            { "type": "text", "value": "  a language you both understand." },
-            { "type": "text", "value": "" },
-            { "type": "text", "value": "  In an era of Electron apps and cloud IDEs, the humble" },
-            { "type": "text", "value": "  terminal remains the most efficient interface ever" },
-            { "type": "text", "value": "  designed. It's composable, scriptable, and honest." },
-            { "type": "text", "value": "  It doesn't lie about what it's doing." },
-            { "type": "text", "value": "" },
-            { "type": "text", "value": "  Every morning I open tmux, split my panes, and feel" },
-            { "type": "text", "value": "  like a pilot running pre-flight checks. The ritual" },
-            { "type": "text", "value": "  matters. The interface is the experience." },
-            { "type": "text", "value": "" },
-            { "type": "text", "value": "  END TRANSMISSION.", "style": "dim" },
+            { "type": "text", "value": "  Developing and deploying custom optimization" },
+            { "type": "text", "value": "  solutions for major oil & gas companies in" },
+            { "type": "text", "value": "  LATAM, US, and the Middle East." },
             { "type": "text", "value": "" }
+          ],
+          "children": [
+            {
+              "id": "exp-bcg-details",
+              "commands": ["1", "details"],
+              "title": "DETAILS",
+              "content": [
+                { "type": "text", "value": "  BCG // SENIOR DATA SCIENTIST — DETAILS", "style": "bright" },
+                { "type": "text", "value": "" },
+                { "type": "text", "value": "  Responsible for end-to-end development and" },
+                { "type": "text", "value": "  deployment of custom optimization solutions" },
+                { "type": "text", "value": "  for major oil & gas companies in LATAM, US," },
+                { "type": "text", "value": "  and the Middle East." },
+                { "type": "text", "value": "" }
+              ]
+            }
           ]
         },
         {
-          "id": "post-2",
-          "commands": ["2"],
-          "title": "THE BEAUTY OF OLD CODE",
+          "id": "exp-apara",
+          "commands": ["2", "apara"],
+          "title": "APARA — HEAD OF AI",
           "content": [
-            { "type": "text", "value": "  THE BEAUTY OF OLD CODE", "style": "bright" },
+            { "type": "text", "value": "  APARA // HEAD OF AI", "style": "bright" },
             { "type": "text", "value": "" },
-            { "type": "text", "value": "  DATE: 2025.12.03  //  READ TIME: 4 MIN", "style": "dim" },
+            { "type": "text", "value": "  LOCATION: Madrid", "style": "dim" },
+            { "type": "text", "value": "  PERIOD:   Dec 2020 - Jan 2022", "style": "dim" },
             { "type": "text", "value": "" },
-            { "type": "text", "value": "  I've been reading through the original Unix source" },
-            { "type": "text", "value": "  code lately. Not because I need to — because I want" },
-            { "type": "text", "value": "  to understand how the architects of our digital world" },
-            { "type": "text", "value": "  thought about problems." },
-            { "type": "text", "value": "" },
-            { "type": "text", "value": "  What strikes me most is the economy. Every line has" },
-            { "type": "text", "value": "  purpose. There's no abstraction for abstraction's sake." },
-            { "type": "text", "value": "  No design patterns layered on top of each other like" },
-            { "type": "text", "value": "  a digital archaeological dig site." },
-            { "type": "text", "value": "" },
-            { "type": "text", "value": "  We could learn a lot from writing code as if bytes" },
-            { "type": "text", "value": "  still mattered. Because in a way, they still do." },
-            { "type": "text", "value": "" },
-            { "type": "text", "value": "  END TRANSMISSION.", "style": "dim" },
+            { "type": "text", "value": "  Head of AI at a consulting firm with 18+ years" },
+            { "type": "text", "value": "  designing BI, data science, and AI solutions." },
             { "type": "text", "value": "" }
+          ],
+          "children": [
+            {
+              "id": "exp-apara-details",
+              "commands": ["1", "details"],
+              "title": "DETAILS",
+              "content": [
+                { "type": "text", "value": "  APARA // HEAD OF AI — DETAILS", "style": "bright" },
+                { "type": "text", "value": "" },
+                { "type": "text", "value": "  - Managed a team of data scientists and software", "style": "dim" },
+                { "type": "text", "value": "    engineers; recruiting and mentoring", "style": "dim" },
+                { "type": "text", "value": "  - Defined AI go-to-market strategy; led AI", "style": "dim" },
+                { "type": "text", "value": "    technical sales", "style": "dim" },
+                { "type": "text", "value": "  - Project manager and technical lead from PoC", "style": "dim" },
+                { "type": "text", "value": "    to production-ready AI solutions", "style": "dim" },
+                { "type": "text", "value": "" }
+              ]
+            }
           ]
         },
         {
-          "id": "post-3",
-          "commands": ["3"],
-          "title": "BUILDING THIS TERMINAL",
+          "id": "exp-daimler-senior",
+          "commands": ["3", "daimler-senior"],
+          "title": "DAIMLER — ANALYTICS SENIOR CONSULTANT",
           "content": [
-            { "type": "text", "value": "  BUILDING THIS TERMINAL", "style": "bright" },
+            { "type": "text", "value": "  DAIMLER // ANALYTICS SENIOR CONSULTANT", "style": "bright" },
             { "type": "text", "value": "" },
-            { "type": "text", "value": "  DATE: 2026.02.10  //  READ TIME: 3 MIN", "style": "dim" },
+            { "type": "text", "value": "  LOCATION: Madrid", "style": "dim" },
+            { "type": "text", "value": "  PERIOD:   Feb 2019 - Dec 2020", "style": "dim" },
             { "type": "text", "value": "" },
-            { "type": "text", "value": "  I wanted a personal site that felt like me. Not a" },
-            { "type": "text", "value": "  polished portfolio with smooth gradients and hero" },
-            { "type": "text", "value": "  sections — something that felt like booting into" },
-            { "type": "text", "value": "  an old machine and finding a message waiting." },
-            { "type": "text", "value": "" },
-            { "type": "text", "value": "  Vanilla TypeScript. No React. No Tailwind. Just a" },
-            { "type": "text", "value": "  state machine, a typewriter engine, and some CSS" },
-            { "type": "text", "value": "  tricks that make your screen look like a CRT." },
-            { "type": "text", "value": "" },
-            { "type": "text", "value": "  END TRANSMISSION.", "style": "dim" },
+            { "type": "text", "value": "  Senior consultant at the Center of Competence" },
+            { "type": "text", "value": "  Big Data Analytics (CoC), an internal partner" },
+            { "type": "text", "value": "  for IT and business units across Daimler." },
             { "type": "text", "value": "" }
+          ],
+          "children": [
+            {
+              "id": "exp-daimler-senior-details",
+              "commands": ["1", "details"],
+              "title": "DETAILS",
+              "content": [
+                { "type": "text", "value": "  DAIMLER // SENIOR CONSULTANT — DETAILS", "style": "bright" },
+                { "type": "text", "value": "" },
+                { "type": "text", "value": "  - ML recommendation systems to increase" },
+                { "type": "text", "value": "    Mercedes-Benz car sales" },
+                { "type": "text", "value": "  - Implemented new CoC microservices" },
+                { "type": "text", "value": "    infrastructure in Kubernetes" },
+                { "type": "text", "value": "  - Led recruitment; onboarded and coached" },
+                { "type": "text", "value": "    4 junior big data & analytics profiles" },
+                { "type": "text", "value": "  - Developed PoC to extract data from scanned" },
+                { "type": "text", "value": "    invoices using OCR and ML in Azure" },
+                { "type": "text", "value": "" }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "exp-daimler-career",
+          "commands": ["4", "daimler-career"],
+          "title": "DAIMLER — CAReer PROGRAM",
+          "content": [
+            { "type": "text", "value": "  DAIMLER // CAReer TOP TALENT PROGRAM", "style": "bright" },
+            { "type": "text", "value": "" },
+            { "type": "text", "value": "  LOCATIONS: Stuttgart, Detroit, Tokyo, Madrid", "style": "dim" },
+            { "type": "text", "value": "  PERIOD:    Aug 2017 - Feb 2019", "style": "dim" },
+            { "type": "text", "value": "" },
+            { "type": "text", "value": "  Global leadership program for graduates and" },
+            { "type": "text", "value": "  young professionals. Target position: Big Data" },
+            { "type": "text", "value": "  & Analytics Consultant." },
+            { "type": "text", "value": "" }
+          ],
+          "children": [
+            {
+              "id": "exp-daimler-career-details",
+              "commands": ["1", "details"],
+              "title": "DETAILS",
+              "content": [
+                { "type": "text", "value": "  DAIMLER // CAReer PROGRAM — DETAILS", "style": "bright" },
+                { "type": "text", "value": "" },
+                { "type": "text", "value": "  Four rotations across four countries:" },
+                { "type": "text", "value": "" },
+                { "type": "text", "value": "  Stuttgart, DE  — Set-up of corporate Data Lake", "style": "dim" },
+                { "type": "text", "value": "                   on Azure; operational docs and", "style": "dim" },
+                { "type": "text", "value": "                   service management", "style": "dim" },
+                { "type": "text", "value": "  Detroit, US    — Coordinated Data Lake", "style": "dim" },
+                { "type": "text", "value": "                   implementation; designed local", "style": "dim" },
+                { "type": "text", "value": "                   Big Data & Analytics model", "style": "dim" },
+                { "type": "text", "value": "  Tokyo, JP      — Big data pipeline optimization;", "style": "dim" },
+                { "type": "text", "value": "                   standardized routines in Python", "style": "dim" },
+                { "type": "text", "value": "  Madrid, ES     — Analytics consulting; PoC", "style": "dim" },
+                { "type": "text", "value": "                   validation, planning, kick-off", "style": "dim" },
+                { "type": "text", "value": "" }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "exp-ey",
+          "commands": ["5", "ey"],
+          "title": "EY — DATA SCIENTIST",
+          "content": [
+            { "type": "text", "value": "  EY // DATA SCIENTIST", "style": "bright" },
+            { "type": "text", "value": "" },
+            { "type": "text", "value": "  LOCATION: Madrid", "style": "dim" },
+            { "type": "text", "value": "  PERIOD:   Jan 2016 - Jul 2017", "style": "dim" },
+            { "type": "text", "value": "" },
+            { "type": "text", "value": "  Data scientist at the Big Data & Analytics" },
+            { "type": "text", "value": "  Center of Excellence." },
+            { "type": "text", "value": "" }
+          ],
+          "children": [
+            {
+              "id": "exp-ey-details",
+              "commands": ["1", "details"],
+              "title": "DETAILS",
+              "content": [
+                { "type": "text", "value": "  EY // DATA SCIENTIST — DETAILS", "style": "bright" },
+                { "type": "text", "value": "" },
+                { "type": "text", "value": "  Member of the Big Data & Analytics Center of" },
+                { "type": "text", "value": "  Excellence (CoE). Worked on data science and" },
+                { "type": "text", "value": "  analytics projects for enterprise clients." },
+                { "type": "text", "value": "" }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "exp-bosch",
+          "commands": ["6", "bosch"],
+          "title": "BOSCH — SENSORS PRE-DEV ENGINEER",
+          "content": [
+            { "type": "text", "value": "  BOSCH // SENSORS PRE-DEV ENGINEER", "style": "bright" },
+            { "type": "text", "value": "" },
+            { "type": "text", "value": "  LOCATION: Reutlingen, Germany", "style": "dim" },
+            { "type": "text", "value": "  PERIOD:   Jul 2014 - Jun 2015", "style": "dim" },
+            { "type": "text", "value": "" },
+            { "type": "text", "value": "  Pre-development engineering for sensors." },
+            { "type": "text", "value": "" }
+          ],
+          "children": [
+            {
+              "id": "exp-bosch-details",
+              "commands": ["1", "details"],
+              "title": "DETAILS",
+              "content": [
+                { "type": "text", "value": "  BOSCH // SENSORS ENGINEER — DETAILS", "style": "bright" },
+                { "type": "text", "value": "" },
+                { "type": "text", "value": "  Sensors pre-development engineering at Bosch's" },
+                { "type": "text", "value": "  Reutlingen facility in Germany." },
+                { "type": "text", "value": "" }
+              ]
+            }
           ]
         }
       ]
