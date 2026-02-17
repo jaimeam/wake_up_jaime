@@ -25,7 +25,7 @@
       { "type": "text", "value": "  J A I M E ' S   T E R M I N A L", "style": "bright" },
       { "type": "text", "value": "" },
       { "type": "text", "value": "  SYSTEM ONLINE // SECURE CONNECTION ESTABLISHED", "style": "dim" },
-      { "type": "text", "value": "  Data scientist. AI lead. Optimization nerd." },
+      { "type": "text", "value": "  Data scientist and AI lead." },
       { "type": "text", "value": "  Experience, projects, and experiments inside." },
       { "type": "text", "value": "" }
     ]
@@ -48,10 +48,10 @@
         { "type": "text", "value": "  Location:  Madrid, on the grid", "style": "dim" },
         { "type": "text", "value": "" },
         { "type": "text", "value": "" },
-        { "type": "text", "value": "  I wrangle data and build AI systems for a living." },
-        { "type": "text", "value": "  Started in sensors, fell into big data, ended up" },
-        { "type": "text", "value": "  leading AI teams and deploying optimization models" },
-        { "type": "text", "value": "  for some of the biggest names in the game." },
+        { "type": "text", "value": "  Data scientist and AI lead with experience across" },
+        { "type": "text", "value": "  consulting, automotive, and tech. Focused on" },
+        { "type": "text", "value": "  optimization, machine learning, and deploying" },
+        { "type": "text", "value": "  AI solutions at scale." },
         { "type": "text", "value": "" },
         { "type": "text", "value": "  When I'm not training models, I'm probably hacking" },
         { "type": "text", "value": "  on side projects, tinkering with Rust, or staring" },
@@ -169,7 +169,8 @@
             { "type": "text", "value": "  PERIOD:   Jan 2022 - Present", "style": "dim" },
             { "type": "text", "value": "" },
             { "type": "text", "value": "  Developing and deploying custom optimization" },
-            { "type": "text", "value": "  solutions for oil & gas clients." },
+            { "type": "text", "value": "  solutions for major oil & gas companies in" },
+            { "type": "text", "value": "  LATAM, US, and the Middle East." },
             { "type": "text", "value": "" }
           ],
           "children": [
@@ -182,7 +183,8 @@
                 { "type": "text", "value": "" },
                 { "type": "text", "value": "  Responsible for end-to-end development and" },
                 { "type": "text", "value": "  deployment of custom optimization solutions" },
-                { "type": "text", "value": "  for oil & gas industry clients." },
+                { "type": "text", "value": "  for major oil & gas companies in LATAM, US," },
+                { "type": "text", "value": "  and the Middle East." },
                 { "type": "text", "value": "" }
               ]
             }
