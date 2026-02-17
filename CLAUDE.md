@@ -108,3 +108,7 @@ Hash-based: `#about`, `#projects/project-terminal`. Deep links work — the boot
 - Colors: edit CSS custom properties in `styles/terminal.css` `:root`
 - CRT effects: edit `styles/crt-effects.css`
 - Typing speed: edit constants at top of `scripts/typewriter.ts`
+
+## Keeping Docs in Sync
+
+Both `README.md` and this file (`CLAUDE.md`) contain a project structure tree and content model description. **When you add, remove, rename, or move any file or directory, update the structure tree in both files.** Same applies if the content model, state machine phases, or build pipeline change — keep both docs accurate.

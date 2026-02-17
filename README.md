@@ -73,14 +73,20 @@ scripts/
   router.ts             Hash-based URL routing
   transitions.ts        Glitch transition effects
 content/
-  sections.ts           All site content (structured data)
+  site.json             All site content as JSON (single source of truth)
+  sections.ts           TypeScript types + JSON import + tree traversal helpers
+dist/
+  bundle.js             Built output (gitignored)
+.github/
+  workflows/
+    deploy.yml          GitHub Pages deployment workflow
 SPEC.md                 Full design specification
 CLAUDE.md               Agent/developer guide
 ```
 
 ## How It Works
 
-The site is a finite state machine: `BOOT → WELCOME → MENU → SECTION → MENU`.
+The site is a finite state machine: `boot → typing → waiting_input → transitioning`.
 
 - **Boot sequence** scrolls fake POST/startup logs, then clears
 - **Welcome** types out an ASCII banner and tagline
@@ -91,15 +97,14 @@ Users can also click/tap menu items directly (mobile-friendly). Hash routing (`#
 
 ## Customizing Content
 
-All content lives in `content/sections.ts`. Edit the structured data there to change:
+All content lives in `content/site.json` — a single JSON file that is the source of truth for everything. `content/sections.ts` provides TypeScript types and tree traversal helpers.
 
-- **Sections** — `SECTIONS` array (About, Projects, Writing, Contact, Credits)
-- **Menu options** — `MENU_OPTIONS` array
-- **Boot lines** — `BOOT_LINES` array
-- **Welcome message** — `WELCOME_CONTENT` array
-- **Easter eggs** — `EASTER_EGGS` record (`secret`, `sudo`, `rm -rf /`, `matrix`, `hello`)
+- **Sections** — `sections` array in `site.json`
+- **Boot lines** — `boot.lines` in `site.json`
+- **Welcome message** — `welcome` in `site.json`
+- **Easter eggs** — `easterEggs` object in `site.json`
 
-To add a new section, add a `TerminalSection` to `SECTIONS` and a corresponding entry in `MENU_OPTIONS`.
+The main menu is auto-generated from top-level entries in the `sections` array — no separate menu config to maintain. To add a new section, just add an object with `id`, `commands`, `title`, and `content` to the `sections` array. Children can be nested to arbitrary depth.
 
 ## Customizing Appearance
 
@@ -119,11 +124,12 @@ To add a new section, add a `TerminalSection` to `SECTIONS` and a corresponding 
 
 ## Deployment
 
-The site is fully static. Deploy the root directory to any static host:
+The site deploys automatically to GitHub Pages via `.github/workflows/deploy.yml` on push to `main`.
+
+For manual deployment to other static hosts:
 
 - **Vercel:** `npx vercel`
 - **Netlify:** drag-and-drop the project folder, or connect the repo
-- **GitHub Pages:** push to a `gh-pages` branch
 
 Make sure `dist/bundle.js` is built before deploying (`npm run build`).
 
