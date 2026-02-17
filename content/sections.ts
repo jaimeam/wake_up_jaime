@@ -22,8 +22,6 @@ export interface TerminalSection {
 // mobile screens and are not readable. Use short text headers
 // or single-line separators instead.
 
-const DIVIDER = "════════════════════════════════════════════════════";
-
 // ── Boot Lines ──────────────────────────────────────────
 
 export const BOOT_LINES: string[] = [
@@ -51,8 +49,6 @@ export const WELCOME_CONTENT: ContentBlock[] = [
   { type: "text", value: "" },
   { type: "text", value: "  W A K E   U P ,   J A I M E", style: "bright" },
   { type: "text", value: "" },
-  { type: "divider", value: DIVIDER, style: "dim" },
-  { type: "text", value: "" },
   {
     type: "text",
     value: "  SYSTEM ONLINE // SECURE CONNECTION ESTABLISHED",
@@ -67,7 +63,6 @@ export const WELCOME_CONTENT: ContentBlock[] = [
     value: "  Thoughts, projects, and experiments inside.",
   },
   { type: "text", value: "" },
-  { type: "divider", value: DIVIDER, style: "dim" },
 ];
 
 // ── Menu ────────────────────────────────────────────────
@@ -95,7 +90,7 @@ export const SECTIONS: TerminalSection[] = [
     title: "ABOUT",
     content: [
       { type: "text", value: "  ABOUT // DOSSIER", style: "bright" },
-      { type: "divider", value: "  ──────────────────────────────────", style: "dim" },
+
       { type: "text", value: "" },
       {
         type: "text",
@@ -115,7 +110,7 @@ export const SECTIONS: TerminalSection[] = [
         style: "dim",
       },
       { type: "text", value: "" },
-      { type: "divider", value: "  ──────────────────────────────────", style: "dim" },
+
       { type: "text", value: "" },
       {
         type: "text",
@@ -159,7 +154,7 @@ export const SECTIONS: TerminalSection[] = [
           "  staring into a terminal very much like this one.",
       },
       { type: "text", value: "" },
-      { type: "divider", value: "  ──────────────────────────────────", style: "dim" },
+
       { type: "text", value: "" },
       {
         type: "text",
@@ -180,7 +175,7 @@ export const SECTIONS: TerminalSection[] = [
     title: "PROJECTS",
     content: [
       { type: "text", value: "  PROJECTS // PORTFOLIO", style: "bright" },
-      { type: "divider", value: "  ──────────────────────────────────", style: "dim" },
+
       { type: "text", value: "" },
       { type: "text", value: "  Public repos from github.com/jaimeam:", style: "dim" },
       { type: "text", value: "" },
@@ -193,7 +188,7 @@ export const SECTIONS: TerminalSection[] = [
         backLabel: "BACK TO PROJECTS",
         content: [
           { type: "text", value: "  PROJECT: WAKE UP JAIME", style: "bright" },
-          { type: "divider", value: "  ──────────────────────────────────", style: "dim" },
+    
           { type: "text", value: "" },
           { type: "text", value: "  You're looking at it." },
           { type: "text", value: "" },
@@ -241,7 +236,7 @@ export const SECTIONS: TerminalSection[] = [
         backLabel: "BACK TO PROJECTS",
         content: [
           { type: "text", value: "  PROJECT: ASTRA", style: "bright" },
-          { type: "divider", value: "  ──────────────────────────────────", style: "dim" },
+    
           { type: "text", value: "" },
           {
             type: "text",
@@ -267,7 +262,7 @@ export const SECTIONS: TerminalSection[] = [
         backLabel: "BACK TO PROJECTS",
         content: [
           { type: "text", value: "  PROJECT: PYOMO SOLVER ANALYZER", style: "bright" },
-          { type: "divider", value: "  ──────────────────────────────────", style: "dim" },
+    
           { type: "text", value: "" },
           {
             type: "text",
@@ -308,7 +303,7 @@ export const SECTIONS: TerminalSection[] = [
         backLabel: "BACK TO PROJECTS",
         content: [
           { type: "text", value: "  PROJECT: ENDORSA", style: "bright" },
-          { type: "divider", value: "  ──────────────────────────────────", style: "dim" },
+    
           { type: "text", value: "" },
           {
             type: "text",
@@ -345,7 +340,7 @@ export const SECTIONS: TerminalSection[] = [
     title: "WRITING",
     content: [
       { type: "text", value: "  WRITING // TRANSMISSION LOG", style: "bright" },
-      { type: "divider", value: "  ──────────────────────────────────", style: "dim" },
+
       { type: "text", value: "" },
       { type: "text", value: "  Recent transmissions:", style: "dim" },
       { type: "text", value: "" },
@@ -358,7 +353,7 @@ export const SECTIONS: TerminalSection[] = [
         backLabel: "BACK TO WRITING",
         content: [
           { type: "text", value: "  WHY I STILL USE A TERMINAL", style: "bright" },
-          { type: "divider", value: "  ──────────────────────────────────", style: "dim" },
+    
           { type: "text", value: "" },
           { type: "text", value: "  DATE: 2026.01.15  //  READ TIME: 5 MIN", style: "dim" },
           { type: "text", value: "" },
@@ -431,7 +426,7 @@ export const SECTIONS: TerminalSection[] = [
         backLabel: "BACK TO WRITING",
         content: [
           { type: "text", value: "  THE BEAUTY OF OLD CODE", style: "bright" },
-          { type: "divider", value: "  ──────────────────────────────────", style: "dim" },
+    
           { type: "text", value: "" },
           { type: "text", value: "  DATE: 2025.12.03  //  READ TIME: 4 MIN", style: "dim" },
           { type: "text", value: "" },
@@ -499,7 +494,7 @@ export const SECTIONS: TerminalSection[] = [
         backLabel: "BACK TO WRITING",
         content: [
           { type: "text", value: "  BUILDING THIS TERMINAL", style: "bright" },
-          { type: "divider", value: "  ──────────────────────────────────", style: "dim" },
+    
           { type: "text", value: "" },
           { type: "text", value: "  DATE: 2026.02.10  //  READ TIME: 3 MIN", style: "dim" },
           { type: "text", value: "" },
@@ -552,7 +547,7 @@ export const SECTIONS: TerminalSection[] = [
     title: "CONTACT",
     content: [
       { type: "text", value: "  CONTACT // OPEN CHANNEL", style: "bright" },
-      { type: "divider", value: "  ──────────────────────────────────", style: "dim" },
+
       { type: "text", value: "" },
       {
         type: "text",
@@ -566,7 +561,7 @@ export const SECTIONS: TerminalSection[] = [
         style: "accent",
       },
       { type: "text", value: "" },
-      { type: "divider", value: "  ──────────────────────────────────", style: "dim" },
+
       { type: "text", value: "" },
       {
         type: "text",
@@ -582,7 +577,7 @@ export const SECTIONS: TerminalSection[] = [
     title: "CREDITS",
     content: [
       { type: "text", value: "  CREDITS // ACKNOWLEDGMENTS", style: "bright" },
-      { type: "divider", value: "  ──────────────────────────────────", style: "dim" },
+
       { type: "text", value: "" },
       { type: "text", value: "  BUILT WITH:", style: "bright" },
       { type: "text", value: "    TypeScript / HTML / CSS", style: "dim" },
@@ -600,7 +595,7 @@ export const SECTIONS: TerminalSection[] = [
       { type: "text", value: "    No frameworks. No dependencies.", style: "dim" },
       { type: "text", value: "    Just code and phosphor glow.", style: "dim" },
       { type: "text", value: "" },
-      { type: "divider", value: "  ──────────────────────────────────", style: "dim" },
+
       { type: "text", value: "" },
       {
         type: "text",
@@ -618,7 +613,6 @@ export const EASTER_EGGS: Record<string, ContentBlock[]> = {
   secret: [
     { type: "text", value: "" },
     { type: "text", value: "  SECRET AREA UNLOCKED", style: "accent" },
-    { type: "divider", value: "  ──────────────────────────────────", style: "dim" },
     { type: "text", value: "" },
     {
       type: "text",
