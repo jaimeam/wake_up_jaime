@@ -8,6 +8,8 @@ import {
   MENU_OPTIONS,
   SECTIONS,
   EASTER_EGGS,
+  findSectionDeep,
+  buildHashPath,
   type ContentBlock,
   type TerminalSection,
 } from "../content/sections";
@@ -199,12 +201,12 @@ function processCommand(raw: string): CommandResult {
     return { action: "clear" };
   }
 
-  // Look up section or child
-  const currentSection = findSection(state.currentSection);
+  // Look up current section (recursive search)
+  const currentLookup = findSectionDeep(state.currentSection);
 
   // Check children first (if we're in a section with children)
-  if (currentSection?.children) {
-    for (const child of currentSection.children) {
+  if (currentLookup?.section.children) {
+    for (const child of currentLookup.section.children) {
       if (child.commands.includes(cmd)) {
         return { action: "navigate", target: child.id };
       }
@@ -234,43 +236,17 @@ async function handleMenuSelection(
 }
 
 async function navigateToSection(sectionId: string): Promise<void> {
-  // Try top-level first
-  let section = findSection(sectionId);
-  let isChild = false;
-  let parentSection: TerminalSection | null = null;
+  // Recursive lookup — works at any depth
+  const lookup = findSectionDeep(sectionId);
 
-  if (!section) {
-    // Try as child of current section
-    const parent = findSection(state.currentSection);
-    if (parent?.children) {
-      section = parent.children.find((c) => c.id === sectionId) ?? null;
-      if (section) {
-        isChild = true;
-        parentSection = parent;
-      }
-    }
-    // Try as child of any section
-    if (!section) {
-      for (const s of SECTIONS) {
-        if (s.children) {
-          const child = s.children.find((c) => c.id === sectionId);
-          if (child) {
-            section = child;
-            isChild = true;
-            parentSection = s;
-            break;
-          }
-        }
-      }
-    }
-  }
-
-  if (!section) {
+  if (!lookup) {
     printInstant(output, "  SECTION NOT FOUND.", "text-error");
     state.currentSection = "menu";
     await showWelcome();
     return;
   }
+
+  const { section, ancestors } = lookup;
 
   // Push history
   if (state.currentSection !== sectionId) {
@@ -278,12 +254,8 @@ async function navigateToSection(sectionId: string): Promise<void> {
   }
   state.currentSection = sectionId;
 
-  // Update hash
-  if (isChild && parentSection) {
-    setHash(`${parentSection.id}/${section.id}`);
-  } else {
-    setHash(section.id);
-  }
+  // Update hash using full ancestry path
+  setHash(buildHashPath(lookup));
 
   // Update aria-live
   updateAriaLive(
@@ -310,8 +282,10 @@ async function navigateToSection(sectionId: string): Promise<void> {
     printInstant(output, "");
   }
 
-  // Back option — rendered as a tappable button for mobile
-  const backLabel = section.backLabel || "BACK TO MAIN MENU";
+  // Back option — auto-generate label from parent if not specified
+  const parent = ancestors.length > 0 ? ancestors[ancestors.length - 1] : null;
+  const backLabel =
+    section.backLabel || (parent ? `BACK TO ${parent.title}` : "BACK TO MAIN MENU");
   createBackButton(output, backLabel, () => {
     if (state.phase !== "waiting_input" && state.phase !== "typing") return;
     requestSkip();
@@ -340,18 +314,6 @@ async function navigateBack(): Promise<void> {
 }
 
 // ── Helpers ─────────────────────────────────────────────
-
-function findSection(id: string): TerminalSection | null {
-  for (const s of SECTIONS) {
-    if (s.id === id) return s;
-    if (s.children) {
-      for (const c of s.children) {
-        if (c.id === id) return c;
-      }
-    }
-  }
-  return null;
-}
 
 async function renderContentBlocks(blocks: ContentBlock[]): Promise<void> {
   const lines = blocks.map((block) => {
@@ -421,10 +383,10 @@ async function showHelp(): Promise<void> {
       printInstant(output, `    [${opt.key}] ${opt.label}`);
     }
   } else {
-    const section = findSection(state.currentSection);
-    if (section?.children) {
+    const lookup = findSectionDeep(state.currentSection);
+    if (lookup?.section.children) {
       printInstant(output, "  AVAILABLE COMMANDS:", "text-bright");
-      for (const child of section.children) {
+      for (const child of lookup.section.children) {
         printInstant(
           output,
           `    [${child.commands[0]}] ${child.title}`
@@ -475,6 +437,7 @@ onHashChange(async (hash: string) => {
   if (state.phase === "transitioning") return;
   const segments = parseHashPath(hash);
   if (segments.length > 0) {
+    // The last segment is always the target section ID
     const targetId = segments[segments.length - 1];
     if (targetId !== state.currentSection) {
       state.phase = "transitioning";
@@ -501,13 +464,13 @@ async function init(): Promise<void> {
     // Deep link: skip boot, go directly to section
     const segments = parseHashPath(hash);
     const targetId = segments[segments.length - 1];
-    // Set up history if navigating to a child
-    if (segments.length > 1) {
-      state.history.push("menu");
-      state.history.push(segments[0]);
-    } else {
-      state.history.push("menu");
+
+    // Build history from all ancestor segments
+    state.history.push("menu");
+    for (let i = 0; i < segments.length - 1; i++) {
+      state.history.push(segments[i]);
     }
+
     await navigateToSection(targetId);
   } else {
     // Normal flow: boot → welcome → menu
