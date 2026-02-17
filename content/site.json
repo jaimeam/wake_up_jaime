@@ -154,103 +154,144 @@
       "content": [
         { "type": "text", "value": "  EXPERIENCE // SERVICE RECORD", "style": "bright" },
         { "type": "text", "value": "" },
-        { "type": "text", "value": "  Ops log. From sensors to neural nets.", "style": "dim" },
+        { "type": "text", "value": "  Select a role for details.", "style": "dim" },
         { "type": "text", "value": "" }
       ],
       "children": [
         {
           "id": "exp-bcg",
           "commands": ["1", "bcg"],
-          "title": "BCG",
+          "title": "BCG — SENIOR DATA SCIENTIST",
           "content": [
             { "type": "text", "value": "  BCG // SENIOR DATA SCIENTIST", "style": "bright" },
             { "type": "text", "value": "" },
             { "type": "text", "value": "  LOCATION: Madrid", "style": "dim" },
             { "type": "text", "value": "  PERIOD:   Jan 2022 - Present", "style": "dim" },
-            { "type": "text", "value": "  STATUS:   ACTIVE", "style": "bright" },
             { "type": "text", "value": "" },
             { "type": "text", "value": "  Developing and deploying custom optimization" },
-            { "type": "text", "value": "  solutions for oil & gas clients. Math meets" },
-            { "type": "text", "value": "  code meets barrels of crude." },
+            { "type": "text", "value": "  solutions for oil & gas clients." },
             { "type": "text", "value": "" }
+          ],
+          "children": [
+            {
+              "id": "exp-bcg-details",
+              "commands": ["1", "details"],
+              "title": "DETAILS",
+              "content": [
+                { "type": "text", "value": "  BCG // SENIOR DATA SCIENTIST — DETAILS", "style": "bright" },
+                { "type": "text", "value": "" },
+                { "type": "text", "value": "  Responsible for end-to-end development and" },
+                { "type": "text", "value": "  deployment of custom optimization solutions" },
+                { "type": "text", "value": "  for oil & gas industry clients." },
+                { "type": "text", "value": "" }
+              ]
+            }
           ]
         },
         {
           "id": "exp-apara",
           "commands": ["2", "apara"],
-          "title": "APARA",
+          "title": "APARA — HEAD OF AI",
           "content": [
             { "type": "text", "value": "  APARA // HEAD OF AI", "style": "bright" },
             { "type": "text", "value": "" },
             { "type": "text", "value": "  LOCATION: Madrid", "style": "dim" },
             { "type": "text", "value": "  PERIOD:   Dec 2020 - Jan 2022", "style": "dim" },
             { "type": "text", "value": "" },
-            { "type": "text", "value": "  Ran the AI division at a consulting firm with 18+" },
-            { "type": "text", "value": "  years building BI and data solutions for some of" },
-            { "type": "text", "value": "  Spain's biggest players." },
-            { "type": "text", "value": "" },
-            { "type": "text", "value": "  - Managed data scientists & engineers; recruiting", "style": "dim" },
-            { "type": "text", "value": "    and mentoring the squad", "style": "dim" },
-            { "type": "text", "value": "  - Defined AI go-to-market; led technical sales", "style": "dim" },
-            { "type": "text", "value": "    from pitch to close", "style": "dim" },
-            { "type": "text", "value": "  - Shipped AI solutions from PoC to production", "style": "dim" },
-            { "type": "text", "value": "" }
-          ]
-        },
-        {
-          "id": "exp-daimler",
-          "commands": ["3", "daimler"],
-          "title": "DAIMLER",
-          "content": [
-            { "type": "text", "value": "  DAIMLER // DATA & ANALYTICS", "style": "bright" },
-            { "type": "text", "value": "" },
-            { "type": "text", "value": "  LOCATIONS: Stuttgart, Detroit, Tokyo, Madrid", "style": "dim" },
-            { "type": "text", "value": "  PERIOD:    Aug 2017 - Dec 2020", "style": "dim" },
-            { "type": "text", "value": "" },
-            { "type": "text", "value": "  Three years across four countries. Two roles," },
-            { "type": "text", "value": "  one mission: make data work at scale." },
+            { "type": "text", "value": "  Head of AI at a consulting firm with 18+ years" },
+            { "type": "text", "value": "  designing BI, data science, and AI solutions." },
             { "type": "text", "value": "" }
           ],
           "children": [
             {
-              "id": "exp-daimler-senior",
-              "commands": ["1", "senior"],
-              "title": "ANALYTICS SENIOR CONSULTANT",
+              "id": "exp-apara-details",
+              "commands": ["1", "details"],
+              "title": "DETAILS",
               "content": [
-                { "type": "text", "value": "  ANALYTICS SENIOR CONSULTANT", "style": "bright" },
+                { "type": "text", "value": "  APARA // HEAD OF AI — DETAILS", "style": "bright" },
                 { "type": "text", "value": "" },
-                { "type": "text", "value": "  LOCATION: Madrid", "style": "dim" },
-                { "type": "text", "value": "  PERIOD:   Feb 2019 - Dec 2020", "style": "dim" },
-                { "type": "text", "value": "" },
-                { "type": "text", "value": "  Senior consultant at the Center of Competence" },
-                { "type": "text", "value": "  Big Data Analytics — internal implementation" },
-                { "type": "text", "value": "  partner for IT and business units across Daimler." },
-                { "type": "text", "value": "" },
-                { "type": "text", "value": "  - ML recommendation systems to push Mercedes", "style": "dim" },
-                { "type": "text", "value": "    sales numbers up", "style": "dim" },
-                { "type": "text", "value": "  - Built new CoC microservices infra on K8s", "style": "dim" },
-                { "type": "text", "value": "  - Led recruitment; coached 4 junior profiles", "style": "dim" },
-                { "type": "text", "value": "  - OCR + ML pipeline for invoice data on Azure", "style": "dim" },
+                { "type": "text", "value": "  - Managed a team of data scientists and software", "style": "dim" },
+                { "type": "text", "value": "    engineers; recruiting and mentoring", "style": "dim" },
+                { "type": "text", "value": "  - Defined AI go-to-market strategy; led AI", "style": "dim" },
+                { "type": "text", "value": "    technical sales", "style": "dim" },
+                { "type": "text", "value": "  - Project manager and technical lead from PoC", "style": "dim" },
+                { "type": "text", "value": "    to production-ready AI solutions", "style": "dim" },
                 { "type": "text", "value": "" }
               ]
-            },
+            }
+          ]
+        },
+        {
+          "id": "exp-daimler-senior",
+          "commands": ["3", "daimler-senior"],
+          "title": "DAIMLER — ANALYTICS SENIOR CONSULTANT",
+          "content": [
+            { "type": "text", "value": "  DAIMLER // ANALYTICS SENIOR CONSULTANT", "style": "bright" },
+            { "type": "text", "value": "" },
+            { "type": "text", "value": "  LOCATION: Madrid", "style": "dim" },
+            { "type": "text", "value": "  PERIOD:   Feb 2019 - Dec 2020", "style": "dim" },
+            { "type": "text", "value": "" },
+            { "type": "text", "value": "  Senior consultant at the Center of Competence" },
+            { "type": "text", "value": "  Big Data Analytics (CoC), an internal partner" },
+            { "type": "text", "value": "  for IT and business units across Daimler." },
+            { "type": "text", "value": "" }
+          ],
+          "children": [
             {
-              "id": "exp-daimler-career",
-              "commands": ["2", "career"],
-              "title": "CAReer TRAINEE PROGRAM",
+              "id": "exp-daimler-senior-details",
+              "commands": ["1", "details"],
+              "title": "DETAILS",
               "content": [
-                { "type": "text", "value": "  CAReer // TOP TALENT PROGRAM", "style": "bright" },
+                { "type": "text", "value": "  DAIMLER // SENIOR CONSULTANT — DETAILS", "style": "bright" },
                 { "type": "text", "value": "" },
-                { "type": "text", "value": "  PERIOD: Aug 2017 - Feb 2019", "style": "dim" },
+                { "type": "text", "value": "  - ML recommendation systems to increase" },
+                { "type": "text", "value": "    Mercedes-Benz car sales" },
+                { "type": "text", "value": "  - Implemented new CoC microservices" },
+                { "type": "text", "value": "    infrastructure in Kubernetes" },
+                { "type": "text", "value": "  - Led recruitment; onboarded and coached" },
+                { "type": "text", "value": "    4 junior big data & analytics profiles" },
+                { "type": "text", "value": "  - Developed PoC to extract data from scanned" },
+                { "type": "text", "value": "    invoices using OCR and ML in Azure" },
+                { "type": "text", "value": "" }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "exp-daimler-career",
+          "commands": ["4", "daimler-career"],
+          "title": "DAIMLER — CAReer PROGRAM",
+          "content": [
+            { "type": "text", "value": "  DAIMLER // CAReer TOP TALENT PROGRAM", "style": "bright" },
+            { "type": "text", "value": "" },
+            { "type": "text", "value": "  LOCATIONS: Stuttgart, Detroit, Tokyo, Madrid", "style": "dim" },
+            { "type": "text", "value": "  PERIOD:    Aug 2017 - Feb 2019", "style": "dim" },
+            { "type": "text", "value": "" },
+            { "type": "text", "value": "  Global leadership program for graduates and" },
+            { "type": "text", "value": "  young professionals. Target position: Big Data" },
+            { "type": "text", "value": "  & Analytics Consultant." },
+            { "type": "text", "value": "" }
+          ],
+          "children": [
+            {
+              "id": "exp-daimler-career-details",
+              "commands": ["1", "details"],
+              "title": "DETAILS",
+              "content": [
+                { "type": "text", "value": "  DAIMLER // CAReer PROGRAM — DETAILS", "style": "bright" },
                 { "type": "text", "value": "" },
-                { "type": "text", "value": "  Global leadership program for graduates." },
-                { "type": "text", "value": "  Target: Big Data & Analytics Consultant." },
-                { "type": "text", "value": "  Four rotations, four countries:" },
+                { "type": "text", "value": "  Four rotations across four countries:" },
                 { "type": "text", "value": "" },
-                { "type": "text", "value": "  Stuttgart, DE  — Corporate Data Lake on Azure", "style": "dim" },
-                { "type": "text", "value": "  Detroit, US    — Data Lake coord & analytics", "style": "dim" },
-                { "type": "text", "value": "  Tokyo, JP      — Big data pipeline optimization", "style": "dim" },
-                { "type": "text", "value": "  Madrid, ES     — Analytics consulting, PoC kickoff", "style": "dim" },
+                { "type": "text", "value": "  Stuttgart, DE  — Set-up of corporate Data Lake", "style": "dim" },
+                { "type": "text", "value": "                   on Azure; operational docs and", "style": "dim" },
+                { "type": "text", "value": "                   service management", "style": "dim" },
+                { "type": "text", "value": "  Detroit, US    — Coordinated Data Lake", "style": "dim" },
+                { "type": "text", "value": "                   implementation; designed local", "style": "dim" },
+                { "type": "text", "value": "                   Big Data & Analytics model", "style": "dim" },
+                { "type": "text", "value": "  Tokyo, JP      — Big data pipeline optimization;", "style": "dim" },
+                { "type": "text", "value": "                   standardized routines in Python", "style": "dim" },
+                { "type": "text", "value": "  Madrid, ES     — Analytics consulting; PoC", "style": "dim" },
+                { "type": "text", "value": "                   validation, planning, kick-off", "style": "dim" },
                 { "type": "text", "value": "" }
               ]
             }
@@ -258,8 +299,8 @@
         },
         {
           "id": "exp-ey",
-          "commands": ["4", "ey"],
-          "title": "EY",
+          "commands": ["5", "ey"],
+          "title": "EY — DATA SCIENTIST",
           "content": [
             { "type": "text", "value": "  EY // DATA SCIENTIST", "style": "bright" },
             { "type": "text", "value": "" },
@@ -267,15 +308,29 @@
             { "type": "text", "value": "  PERIOD:   Jan 2016 - Jul 2017", "style": "dim" },
             { "type": "text", "value": "" },
             { "type": "text", "value": "  Data scientist at the Big Data & Analytics" },
-            { "type": "text", "value": "  Center of Excellence. Where the journey into" },
-            { "type": "text", "value": "  data started getting serious." },
+            { "type": "text", "value": "  Center of Excellence." },
             { "type": "text", "value": "" }
+          ],
+          "children": [
+            {
+              "id": "exp-ey-details",
+              "commands": ["1", "details"],
+              "title": "DETAILS",
+              "content": [
+                { "type": "text", "value": "  EY // DATA SCIENTIST — DETAILS", "style": "bright" },
+                { "type": "text", "value": "" },
+                { "type": "text", "value": "  Member of the Big Data & Analytics Center of" },
+                { "type": "text", "value": "  Excellence (CoE). Worked on data science and" },
+                { "type": "text", "value": "  analytics projects for enterprise clients." },
+                { "type": "text", "value": "" }
+              ]
+            }
           ]
         },
         {
           "id": "exp-bosch",
-          "commands": ["5", "bosch"],
-          "title": "BOSCH",
+          "commands": ["6", "bosch"],
+          "title": "BOSCH — SENSORS PRE-DEV ENGINEER",
           "content": [
             { "type": "text", "value": "  BOSCH // SENSORS PRE-DEV ENGINEER", "style": "bright" },
             { "type": "text", "value": "" },
@@ -283,8 +338,21 @@
             { "type": "text", "value": "  PERIOD:   Jul 2014 - Jun 2015", "style": "dim" },
             { "type": "text", "value": "" },
             { "type": "text", "value": "  Pre-development engineering for sensors." },
-            { "type": "text", "value": "  The hardware days. Before the data took over." },
             { "type": "text", "value": "" }
+          ],
+          "children": [
+            {
+              "id": "exp-bosch-details",
+              "commands": ["1", "details"],
+              "title": "DETAILS",
+              "content": [
+                { "type": "text", "value": "  BOSCH // SENSORS ENGINEER — DETAILS", "style": "bright" },
+                { "type": "text", "value": "" },
+                { "type": "text", "value": "  Sensors pre-development engineering at Bosch's" },
+                { "type": "text", "value": "  Reutlingen facility in Germany." },
+                { "type": "text", "value": "" }
+              ]
+            }
           ]
         }
       ]
