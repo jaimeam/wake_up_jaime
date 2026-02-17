@@ -1,8 +1,8 @@
-# Ancient Terminal
+# Wake Up Jaime
 
-A personal website that looks and behaves like a retro CRT terminal. Black screen, phosphor-green text, blinking cursor, typewriter output, and keyboard-driven navigation.
+A retro CRT terminal personal website. Black screen, phosphor-green text, blinking cursor, typewriter output, and keyboard-driven navigation.
 
-**Live site:** https://jaimeam.github.io/ancient_blog/
+**Live site:** https://jaimeam.github.io/wake_up_jaime/
 
 Built with vanilla TypeScript and CSS. No frameworks, no runtime dependencies.
 

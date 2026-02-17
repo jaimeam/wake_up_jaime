@@ -17,16 +17,10 @@ export interface TerminalSection {
   backLabel?: string;
 }
 
-// ── ASCII Art ───────────────────────────────────────────
-
-const ASCII_BANNER = `
-     █████╗ ███╗   ██╗ ██████╗██╗███████╗███╗   ██╗████████╗
-    ██╔══██╗████╗  ██║██╔════╝██║██╔════╝████╗  ██║╚══██╔══╝
-    ███████║██╔██╗ ██║██║     ██║█████╗  ██╔██╗ ██║   ██║
-    ██╔══██║██║╚██╗██║██║     ██║██╔══╝  ██║╚██╗██║   ██║
-    ██║  ██║██║ ╚████║╚██████╗██║███████╗██║ ╚████║   ██║
-    ╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝╚═╝╚══════╝╚═╝  ╚═══╝   ╚═╝
-              B   L   O   G       T E R M I N A L`;
+// ── Constants ───────────────────────────────────────────
+// NOTE: Avoid large ASCII art banners — they break on narrow
+// mobile screens and are not readable. Use short text headers
+// or single-line separators instead.
 
 const DIVIDER = "════════════════════════════════════════════════════";
 
@@ -47,14 +41,15 @@ export const BOOT_LINES: string[] = [
   "LOADING PERSONALITY MATRIX .... OK",
   "",
   "ALL SYSTEMS NOMINAL.",
-  "WELCOME, OPERATOR.",
+  "WAKE UP, JAIME.",
   "",
 ];
 
 // ── Welcome ─────────────────────────────────────────────
 
 export const WELCOME_CONTENT: ContentBlock[] = [
-  { type: "ascii", value: ASCII_BANNER, style: "bright", typingSpeed: "fast" },
+  { type: "text", value: "" },
+  { type: "text", value: "  W A K E   U P ,   J A I M E", style: "bright" },
   { type: "text", value: "" },
   { type: "divider", value: DIVIDER, style: "dim" },
   { type: "text", value: "" },
@@ -65,11 +60,11 @@ export const WELCOME_CONTENT: ContentBlock[] = [
   },
   {
     type: "text",
-    value: "  Welcome to the ancient terminal. A place for thoughts,",
+    value: "  Welcome, operator. Personal terminal loaded.",
   },
   {
     type: "text",
-    value: "  projects, and digital archaeology.",
+    value: "  Thoughts, projects, and experiments inside.",
   },
   { type: "text", value: "" },
   { type: "divider", value: DIVIDER, style: "dim" },
@@ -99,14 +94,13 @@ export const SECTIONS: TerminalSection[] = [
     commands: ["1", "about"],
     title: "ABOUT",
     content: [
-      { type: "text", value: "╔══════════════════════════════════════╗", style: "dim" },
-      { type: "text", value: "║            ABOUT // DOSSIER          ║", style: "bright" },
-      { type: "text", value: "╚══════════════════════════════════════╝", style: "dim" },
+      { type: "text", value: "  ABOUT // DOSSIER", style: "bright" },
+      { type: "divider", value: "  ──────────────────────────────────", style: "dim" },
       { type: "text", value: "" },
       {
         type: "text",
         value:
-          "  Handle:    ANCIENT_OPERATOR",
+          "  Handle:    JAIME",
       },
       {
         type: "text",
@@ -131,22 +125,22 @@ export const SECTIONS: TerminalSection[] = [
       {
         type: "text",
         value:
-          "  Software engineer by trade, digital archaeologist by",
+          "  Software engineer by trade. I like digging into systems,",
       },
       {
         type: "text",
         value:
-          "  curiosity. I like digging into old systems, understanding",
+          "  understanding how things work beneath the surface, and",
       },
       {
         type: "text",
         value:
-          "  how things work beneath the surface, and building new",
+          "  building new things that feel like they've been around",
       },
       {
         type: "text",
         value:
-          "  things that feel like they've been around forever.",
+          "  forever.",
       },
       { type: "text", value: "" },
       {
@@ -157,7 +151,7 @@ export const SECTIONS: TerminalSection[] = [
       {
         type: "text",
         value:
-          "  computing history, tinkering with retro hardware, or",
+          "  computing history, tinkering with side projects, or",
       },
       {
         type: "text",
@@ -169,12 +163,12 @@ export const SECTIONS: TerminalSection[] = [
       { type: "text", value: "" },
       {
         type: "text",
-        value: "  SKILLS: TypeScript, Rust, Go, Python, Systems Design",
+        value: "  SKILLS: TypeScript, Rust, Python, Systems Design",
         style: "dim",
       },
       {
         type: "text",
-        value: "  INTERESTS: Retro computing, Open source, Cybersecurity",
+        value: "  INTERESTS: Open source, Optimization, Cybersecurity",
         style: "dim",
       },
       { type: "text", value: "" },
@@ -185,30 +179,28 @@ export const SECTIONS: TerminalSection[] = [
     commands: ["2", "projects"],
     title: "PROJECTS",
     content: [
-      { type: "text", value: "╔══════════════════════════════════════╗", style: "dim" },
-      { type: "text", value: "║        PROJECTS // PORTFOLIO         ║", style: "bright" },
-      { type: "text", value: "╚══════════════════════════════════════╝", style: "dim" },
+      { type: "text", value: "  PROJECTS // PORTFOLIO", style: "bright" },
+      { type: "divider", value: "  ──────────────────────────────────", style: "dim" },
       { type: "text", value: "" },
-      { type: "text", value: "  Select a project to learn more:", style: "dim" },
+      { type: "text", value: "  Public repos from github.com/jaimeam:", style: "dim" },
       { type: "text", value: "" },
     ],
     children: [
       {
-        id: "project-terminal",
-        commands: ["1", "terminal"],
-        title: "ANCIENT TERMINAL",
+        id: "project-wake-up-jaime",
+        commands: ["1", "wake_up_jaime"],
+        title: "WAKE UP JAIME",
         backLabel: "BACK TO PROJECTS",
         content: [
-          { type: "text", value: "╔══════════════════════════════════════╗", style: "dim" },
-          { type: "text", value: "║      PROJECT: ANCIENT TERMINAL       ║", style: "bright" },
-          { type: "text", value: "╚══════════════════════════════════════╝", style: "dim" },
+          { type: "text", value: "  PROJECT: WAKE UP JAIME", style: "bright" },
+          { type: "divider", value: "  ──────────────────────────────────", style: "dim" },
           { type: "text", value: "" },
           { type: "text", value: "  You're looking at it." },
           { type: "text", value: "" },
           {
             type: "text",
             value:
-              "  A CRT-style personal terminal website built with",
+              "  A CRT-style retro personal website built with",
           },
           {
             type: "text",
@@ -236,86 +228,110 @@ export const SECTIONS: TerminalSection[] = [
           {
             type: "link",
             value: "  > VIEW SOURCE ON GITHUB",
-            href: "https://github.com",
+            href: "https://github.com/jaimeam/wake_up_jaime",
             style: "accent",
           },
           { type: "text", value: "" },
         ],
       },
       {
-        id: "project-cipher",
-        commands: ["2", "cipher"],
-        title: "CIPHER ENGINE",
+        id: "project-astra",
+        commands: ["2", "astra"],
+        title: "ASTRA",
         backLabel: "BACK TO PROJECTS",
         content: [
-          { type: "text", value: "╔══════════════════════════════════════╗", style: "dim" },
-          { type: "text", value: "║      PROJECT: CIPHER ENGINE          ║", style: "bright" },
-          { type: "text", value: "╚══════════════════════════════════════╝", style: "dim" },
+          { type: "text", value: "  PROJECT: ASTRA", style: "bright" },
+          { type: "divider", value: "  ──────────────────────────────────", style: "dim" },
           { type: "text", value: "" },
           {
             type: "text",
             value:
-              "  A lightweight encryption toolkit for learning",
-          },
-          {
-            type: "text",
-            value:
-              "  classical and modern cryptographic algorithms.",
-          },
-          {
-            type: "text",
-            value:
-              "  Implements Caesar, Vigenere, AES, and RSA with",
-          },
-          {
-            type: "text",
-            value:
-              "  step-by-step visualization of the process.",
+              "  A Rust project currently in development.",
           },
           { type: "text", value: "" },
-          { type: "text", value: "  STACK: Rust, WebAssembly, TypeScript", style: "dim" },
+          { type: "text", value: "  STACK: Rust", style: "dim" },
           { type: "text", value: "" },
           {
             type: "link",
             value: "  > VIEW SOURCE ON GITHUB",
-            href: "https://github.com",
+            href: "https://github.com/jaimeam/astra",
             style: "accent",
           },
           { type: "text", value: "" },
         ],
       },
       {
-        id: "project-retro",
-        commands: ["3", "retro"],
-        title: "RETRO EMULATOR",
+        id: "project-pyomo",
+        commands: ["3", "pyomo"],
+        title: "PYOMO SOLVER ANALYZER",
         backLabel: "BACK TO PROJECTS",
         content: [
-          { type: "text", value: "╔══════════════════════════════════════╗", style: "dim" },
-          { type: "text", value: "║      PROJECT: RETRO EMULATOR         ║", style: "bright" },
-          { type: "text", value: "╚══════════════════════════════════════╝", style: "dim" },
+          { type: "text", value: "  PROJECT: PYOMO SOLVER ANALYZER", style: "bright" },
+          { type: "divider", value: "  ──────────────────────────────────", style: "dim" },
           { type: "text", value: "" },
           {
             type: "text",
             value:
-              "  A browser-based emulator for classic 8-bit systems.",
+              "  A constraint analysis and debugging toolkit for Pyomo.",
           },
           {
             type: "text",
             value:
-              "  Accurate cycle-level emulation of the CPU, PPU, and",
+              "  Provides tools for analyzing solver outputs, diagnosing",
           },
           {
             type: "text",
             value:
-              "  APU. Play games right in your terminal. Well, almost.",
+              "  infeasibility, and identifying binding constraints in",
+          },
+          {
+            type: "text",
+            value:
+              "  linear optimization models.",
           },
           { type: "text", value: "" },
-          { type: "text", value: "  STACK: Go, WebAssembly, Canvas API", style: "dim" },
+          { type: "text", value: "  STACK: Python, Pyomo", style: "dim" },
           { type: "text", value: "" },
           {
             type: "link",
             value: "  > VIEW SOURCE ON GITHUB",
-            href: "https://github.com",
+            href: "https://github.com/jaimeam/Pyomo-Solver-Analyzer",
+            style: "accent",
+          },
+          { type: "text", value: "" },
+        ],
+      },
+      {
+        id: "project-endorsa",
+        commands: ["4", "endorsa"],
+        title: "ENDORSA",
+        backLabel: "BACK TO PROJECTS",
+        content: [
+          { type: "text", value: "  PROJECT: ENDORSA", style: "bright" },
+          { type: "divider", value: "  ──────────────────────────────────", style: "dim" },
+          { type: "text", value: "" },
+          {
+            type: "text",
+            value:
+              "  A social network for exclusive professional networking",
+          },
+          {
+            type: "text",
+            value:
+              "  based on trustful relationships. Application back-end",
+          },
+          {
+            type: "text",
+            value:
+              "  developed with Flask and SQLAlchemy.",
+          },
+          { type: "text", value: "" },
+          { type: "text", value: "  STACK: Python, Flask, SQLAlchemy", style: "dim" },
+          { type: "text", value: "" },
+          {
+            type: "link",
+            value: "  > VIEW SOURCE ON GITHUB",
+            href: "https://github.com/jaimeam/endorsa",
             style: "accent",
           },
           { type: "text", value: "" },
@@ -328,9 +344,8 @@ export const SECTIONS: TerminalSection[] = [
     commands: ["3", "writing"],
     title: "WRITING",
     content: [
-      { type: "text", value: "╔══════════════════════════════════════╗", style: "dim" },
-      { type: "text", value: "║      WRITING // TRANSMISSION LOG     ║", style: "bright" },
-      { type: "text", value: "╚══════════════════════════════════════╝", style: "dim" },
+      { type: "text", value: "  WRITING // TRANSMISSION LOG", style: "bright" },
+      { type: "divider", value: "  ──────────────────────────────────", style: "dim" },
       { type: "text", value: "" },
       { type: "text", value: "  Recent transmissions:", style: "dim" },
       { type: "text", value: "" },
@@ -342,9 +357,8 @@ export const SECTIONS: TerminalSection[] = [
         title: "WHY I STILL USE A TERMINAL",
         backLabel: "BACK TO WRITING",
         content: [
-          { type: "text", value: "╔══════════════════════════════════════╗", style: "dim" },
-          { type: "text", value: "║   WHY I STILL USE A TERMINAL         ║", style: "bright" },
-          { type: "text", value: "╚══════════════════════════════════════╝", style: "dim" },
+          { type: "text", value: "  WHY I STILL USE A TERMINAL", style: "bright" },
+          { type: "divider", value: "  ──────────────────────────────────", style: "dim" },
           { type: "text", value: "" },
           { type: "text", value: "  DATE: 2026.01.15  //  READ TIME: 5 MIN", style: "dim" },
           { type: "text", value: "" },
@@ -416,9 +430,8 @@ export const SECTIONS: TerminalSection[] = [
         title: "THE BEAUTY OF OLD CODE",
         backLabel: "BACK TO WRITING",
         content: [
-          { type: "text", value: "╔══════════════════════════════════════╗", style: "dim" },
-          { type: "text", value: "║   THE BEAUTY OF OLD CODE             ║", style: "bright" },
-          { type: "text", value: "╚══════════════════════════════════════╝", style: "dim" },
+          { type: "text", value: "  THE BEAUTY OF OLD CODE", style: "bright" },
+          { type: "divider", value: "  ──────────────────────────────────", style: "dim" },
           { type: "text", value: "" },
           { type: "text", value: "  DATE: 2025.12.03  //  READ TIME: 4 MIN", style: "dim" },
           { type: "text", value: "" },
@@ -485,9 +498,8 @@ export const SECTIONS: TerminalSection[] = [
         title: "BUILDING THIS TERMINAL",
         backLabel: "BACK TO WRITING",
         content: [
-          { type: "text", value: "╔══════════════════════════════════════╗", style: "dim" },
-          { type: "text", value: "║   BUILDING THIS TERMINAL             ║", style: "bright" },
-          { type: "text", value: "╚══════════════════════════════════════╝", style: "dim" },
+          { type: "text", value: "  BUILDING THIS TERMINAL", style: "bright" },
+          { type: "divider", value: "  ──────────────────────────────────", style: "dim" },
           { type: "text", value: "" },
           { type: "text", value: "  DATE: 2026.02.10  //  READ TIME: 3 MIN", style: "dim" },
           { type: "text", value: "" },
@@ -539,37 +551,18 @@ export const SECTIONS: TerminalSection[] = [
     commands: ["4", "contact"],
     title: "CONTACT",
     content: [
-      { type: "text", value: "╔══════════════════════════════════════╗", style: "dim" },
-      { type: "text", value: "║    CONTACT // OPEN CHANNEL           ║", style: "bright" },
-      { type: "text", value: "╚══════════════════════════════════════╝", style: "dim" },
+      { type: "text", value: "  CONTACT // OPEN CHANNEL", style: "bright" },
+      { type: "divider", value: "  ──────────────────────────────────", style: "dim" },
       { type: "text", value: "" },
       {
         type: "text",
-        value: "  Secure channels for communication:",
+        value: "  Channels for communication:",
       },
       { type: "text", value: "" },
       {
         type: "link",
-        value: "  > EMAIL:    operator@ancient.blog",
-        href: "mailto:operator@ancient.blog",
-        style: "accent",
-      },
-      {
-        type: "link",
-        value: "  > GITHUB:   github.com/ancient-operator",
-        href: "https://github.com",
-        style: "accent",
-      },
-      {
-        type: "link",
-        value: "  > LINKEDIN: linkedin.com/in/ancient-operator",
-        href: "https://linkedin.com",
-        style: "accent",
-      },
-      {
-        type: "link",
-        value: "  > X/TWITTER: @ancient_operator",
-        href: "https://x.com",
+        value: "  > GITHUB:   github.com/jaimeam",
+        href: "https://github.com/jaimeam",
         style: "accent",
       },
       { type: "text", value: "" },
@@ -580,11 +573,6 @@ export const SECTIONS: TerminalSection[] = [
         value: "  All channels monitored. Response time: < 24 hours.",
         style: "dim",
       },
-      {
-        type: "text",
-        value: "  Encrypted communications preferred.",
-        style: "dim",
-      },
       { type: "text", value: "" },
     ],
   },
@@ -593,9 +581,8 @@ export const SECTIONS: TerminalSection[] = [
     commands: ["5", "credits"],
     title: "CREDITS",
     content: [
-      { type: "text", value: "╔══════════════════════════════════════╗", style: "dim" },
-      { type: "text", value: "║    CREDITS // ACKNOWLEDGMENTS        ║", style: "bright" },
-      { type: "text", value: "╚══════════════════════════════════════╝", style: "dim" },
+      { type: "text", value: "  CREDITS // ACKNOWLEDGMENTS", style: "bright" },
+      { type: "divider", value: "  ──────────────────────────────────", style: "dim" },
       { type: "text", value: "" },
       { type: "text", value: "  BUILT WITH:", style: "bright" },
       { type: "text", value: "    TypeScript / HTML / CSS", style: "dim" },
@@ -630,9 +617,8 @@ export const SECTIONS: TerminalSection[] = [
 export const EASTER_EGGS: Record<string, ContentBlock[]> = {
   secret: [
     { type: "text", value: "" },
-    { type: "text", value: "  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄", style: "accent" },
-    { type: "text", value: "  █ SECRET AREA UNLOCKED             █", style: "accent" },
-    { type: "text", value: "  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀", style: "accent" },
+    { type: "text", value: "  SECRET AREA UNLOCKED", style: "accent" },
+    { type: "divider", value: "  ──────────────────────────────────", style: "dim" },
     { type: "text", value: "" },
     {
       type: "text",

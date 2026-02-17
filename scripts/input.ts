@@ -59,10 +59,18 @@ export function showPrompt(container: HTMLElement): Promise<string> {
       resolve(cmd);
     };
 
-    // Focus input on desktop
+    // Focus input on desktop automatically.
+    // On mobile, tapping the prompt line opens the keyboard.
     if (!isMobile()) {
       inputEl.focus();
     }
+
+    // Allow mobile users to tap the prompt line to focus the input
+    inputLineEl.addEventListener("click", () => {
+      if (inputEl && inputEnabled) {
+        inputEl.focus();
+      }
+    });
 
     scrollToBottom();
 
@@ -150,7 +158,26 @@ export function createChildMenuButtons(
 }
 
 /**
+ * Create a tappable back button (works on mobile and desktop).
+ */
+export function createBackButton(
+  container: HTMLElement,
+  label: string,
+  handler: () => void
+): void {
+  const btn = document.createElement("button");
+  btn.className = "menu-btn text-dim";
+  btn.textContent = `  [0] ${label}`;
+  btn.setAttribute("data-key", "0");
+  btn.addEventListener("click", handler);
+  container.appendChild(btn);
+}
+
+/**
  * Focus the hidden input (for re-focusing after clicks).
+ * On desktop this is called automatically on every click.
+ * On mobile we skip auto-focus to avoid popping the keyboard
+ * unexpectedly, but explicit taps on the prompt line still work.
  */
 export function focusInput(): void {
   if (inputEl && inputEnabled && !isMobile()) {

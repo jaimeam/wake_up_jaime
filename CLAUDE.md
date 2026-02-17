@@ -58,6 +58,8 @@ All content is defined as `TerminalSection` objects with `ContentBlock[]` arrays
 
 To add/edit content: modify `content/sections.ts`. Menu options are in `MENU_OPTIONS`. Easter eggs are in `EASTER_EGGS`.
 
+**Important:** Do NOT use large ASCII art banners (block characters, box-drawing headers, etc.). They break on mobile/narrow screens and are unreadable. Use simple text headers with `style: "bright"` and single-line dividers instead.
+
 ### Typewriter Engine (`scripts/typewriter.ts`)
 Types text character-by-character with configurable speed, random jitter, and punctuation pauses. Respects `prefers-reduced-motion` (shows text instantly). Users can skip by pressing any key or clicking.
 
