@@ -41,7 +41,8 @@ scripts/
   router.ts             ← Hash-based URL routing (#about, #projects/foo)
   transitions.ts        ← Glitch CSS transition between sections
 content/
-  sections.ts           ← ALL site content as structured TypeScript data
+  site.json             ← ALL site content as JSON (single source of truth)
+  sections.ts           ← TypeScript types + JSON import + tree traversal helpers
 dist/
   bundle.js             ← Built output (gitignored)
 ```
@@ -53,10 +54,12 @@ dist/
 ### State Machine (`scripts/main.ts`)
 The app has four phases: `boot → typing → waiting_input → transitioning`. The `state` object tracks the current phase, current section ID, and navigation history stack.
 
-### Content Model (`content/sections.ts`)
-All content is defined as `TerminalSection` objects with `ContentBlock[]` arrays. Each block has a type (`text`, `ascii`, `link`, `divider`), optional style (`dim`, `bright`, `error`, `accent`), and optional typing speed override.
+### Content Model (`content/site.json` + `content/sections.ts`)
+All content lives in `content/site.json` — a single JSON file that is the source of truth for boot text, welcome screen, sections, and easter eggs. `content/sections.ts` imports the JSON at build time, applies TypeScript types, and exports helpers for recursive tree traversal.
 
-To add/edit content: modify `content/sections.ts`. Menu options are in `MENU_OPTIONS`. Easter eggs are in `EASTER_EGGS`.
+Each content block has a type (`text`, `ascii`, `link`, `divider`), optional style (`dim`, `bright`, `error`, `accent`), and optional typing speed override.
+
+**To add/edit content: modify `content/site.json`.** The main menu is auto-generated from the top-level entries in the `sections` array — no separate `MENU_OPTIONS` to maintain. Children can be nested to arbitrary depth and navigation adapts automatically.
 
 **Important:** Do NOT use large ASCII art banners (block characters, box-drawing headers, etc.). They break on mobile/narrow screens and are unreadable. Use simple text headers with `style: "bright"` and single-line dividers instead.
 
@@ -86,16 +89,19 @@ Hash-based: `#about`, `#projects/project-terminal`. Deep links work — the boot
 ## Common Tasks
 
 ### Add a new top-level section
-1. Add a `TerminalSection` to the `SECTIONS` array in `content/sections.ts`
-2. Add an entry to `MENU_OPTIONS` with the next number key
-3. The state machine picks it up automatically
+1. Add a new object to the `sections` array in `content/site.json`
+2. Give it a unique `id`, `commands` (first entry becomes the menu key), `title`, and `content`
+3. The main menu and state machine pick it up automatically — no other file needs editing
 
-### Add a new project/blog post
-1. Add a child to the relevant section's `children` array in `content/sections.ts`
-2. Give it `commands: ["<number>"]` matching its position
+### Add a new subsection (project, blog post, etc.) at any depth
+1. Add a `children` array to any section in `content/site.json` (or append to an existing one)
+2. Give each child `id`, `commands`, `title`, and `content`
+3. Children can themselves have `children` — nesting depth is unlimited
+4. Navigation, hash routing, and back buttons adapt automatically
+5. `backLabel` is optional — defaults to "BACK TO {parent title}"
 
 ### Add a new easter egg
-1. Add an entry to the `EASTER_EGGS` record in `content/sections.ts`
+1. Add an entry to the `easterEggs` object in `content/site.json`
 2. The command processor in `main.ts` checks this map automatically
 
 ### Change colors/effects
