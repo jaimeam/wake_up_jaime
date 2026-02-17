@@ -25,6 +25,7 @@ import {
   hidePrompt,
   createMenuButtons,
   createChildMenuButtons,
+  createBackButton,
   focusInput,
   initGlobalFocus,
 } from "./input";
@@ -105,7 +106,7 @@ async function showWelcome(): Promise<void> {
   setHash("");
 
   // Update aria-live with full content
-  updateAriaLive("Welcome to Ancient Terminal. Main menu.");
+  updateAriaLive("Wake up Jaime. Main menu.");
 
   await renderContentBlocks(WELCOME_CONTENT);
   await renderContentBlocks(MENU_PROMPT);
@@ -309,9 +310,13 @@ async function navigateToSection(sectionId: string): Promise<void> {
     printInstant(output, "");
   }
 
-  // Back option
+  // Back option — rendered as a tappable button for mobile
   const backLabel = section.backLabel || "BACK TO MAIN MENU";
-  printInstant(output, `  [0] ${backLabel}`, "text-dim");
+  createBackButton(output, backLabel, () => {
+    if (state.phase !== "waiting_input" && state.phase !== "typing") return;
+    requestSkip();
+    navigateBack();
+  });
   printInstant(output, "");
 
   state.phase = "waiting_input";
