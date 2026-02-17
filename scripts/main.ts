@@ -330,6 +330,8 @@ async function navigateBack(): Promise<void> {
 
   const prev = state.history.pop();
   if (prev && prev !== "menu") {
+    // Set currentSection first so navigateToSection skips the history push
+    state.currentSection = prev;
     await navigateToSection(prev);
   } else {
     state.history = [];
