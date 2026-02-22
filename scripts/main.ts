@@ -46,12 +46,14 @@ interface TerminalState {
   phase: "boot" | "typing" | "waiting_input" | "transitioning";
   currentSection: string;
   history: string[];
+  visitedSections: Set<string>;
 }
 
 const state: TerminalState = {
   phase: "boot",
   currentSection: "menu",
   history: [],
+  visitedSections: new Set(),
 };
 
 // ── Boot Sequence ───────────────────────────────────────
@@ -107,11 +109,14 @@ async function showWelcome(): Promise<void> {
   state.currentSection = "menu";
   setHash("");
 
+  const revisit = state.visitedSections.has("menu");
+  state.visitedSections.add("menu");
+
   // Update aria-live with full content
   updateAriaLive("Wake up Jaime. Main menu.");
 
-  await renderContentBlocks(WELCOME_CONTENT);
-  await renderContentBlocks(MENU_PROMPT);
+  await renderContentBlocks(WELCOME_CONTENT, revisit);
+  await renderContentBlocks(MENU_PROMPT, revisit);
 
   // Create menu buttons
   const menuDiv = createMenuButtons(output, MENU_OPTIONS, (sectionId, key) => {
@@ -265,8 +270,11 @@ async function navigateToSection(sectionId: string): Promise<void> {
       .join(" ")}`
   );
 
+  const revisit = state.visitedSections.has(sectionId);
+  state.visitedSections.add(sectionId);
+
   state.phase = "typing";
-  await renderContentBlocks(section.content);
+  await renderContentBlocks(section.content, revisit);
 
   // If section has children, render child menu
   if (section.children && section.children.length > 0) {
@@ -315,7 +323,13 @@ async function navigateBack(): Promise<void> {
 
 // ── Helpers ─────────────────────────────────────────────
 
-async function renderContentBlocks(blocks: ContentBlock[]): Promise<void> {
+/** Stagger delay between lines in fast-cascade mode (ms). */
+const CASCADE_LINE_DELAY = 12;
+
+async function renderContentBlocks(
+  blocks: ContentBlock[],
+  instant = false
+): Promise<void> {
   const lines = blocks.map((block) => {
     if (block.type === "link") {
       return {
@@ -338,24 +352,34 @@ async function renderContentBlocks(blocks: ContentBlock[]): Promise<void> {
   for (const line of lines) {
     if (line.isLink) {
       printLink(output, line.text, line.href, line.className);
-      await sleep(50);
     } else {
-      const div = document.createElement("div");
-      div.className = "line";
-      output.appendChild(div);
-
-      if (line.text === "") {
-        await sleep(100);
+      if (instant) {
+        printInstant(output, line.text, line.className || undefined);
       } else {
-        await typeText(
-          div,
-          line.text,
-          line.speed as "fast" | "normal" | "slow",
-          line.className
-        );
-        await sleep(30);
+        const div = document.createElement("div");
+        div.className = "line";
+        output.appendChild(div);
+
+        if (line.text === "") {
+          await sleep(100);
+        } else {
+          await typeText(
+            div,
+            line.text,
+            line.speed as "fast" | "normal" | "slow",
+            line.className
+          );
+          await sleep(30);
+        }
       }
     }
+
+    if (instant) {
+      await sleep(CASCADE_LINE_DELAY);
+    } else if (line.isLink) {
+      await sleep(50);
+    }
+
     scrollToBottom();
   }
 }
